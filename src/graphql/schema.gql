@@ -1,0 +1,37 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type VoteType {
+  id: ID!
+  title: String!
+  ayes: Int
+  noes: Int
+}
+
+type Query {
+  test: Boolean!
+}
+
+type Mutation {
+  createVote(input: CreateVoteInput!): VoteType!
+  setVote(input: SetVoteInput!): VoteType
+}
+
+input CreateVoteInput {
+  title: String!
+}
+
+input SetVoteInput {
+  voteId: Int!
+  vote: VoteEnum!
+}
+
+enum VoteEnum {
+  YES
+  NO
+}
+
+type Subscription {
+  voteAdded(voteId: Int!): VoteType!
+}
